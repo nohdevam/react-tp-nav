@@ -1,0 +1,38 @@
+Pas de scénario standard qui permet de naviguer d'un composant à un autre, ni de relation parent enfant,  ni d'évènement permettant de lanceruncall back dans l'autre composant, alors que je veux faire un passage d'info, comment 
+
+rq: 
+    reducer permet de gérer un état complexe
+    un context permet de passer des info, d'établir une "tuyauterie" entre composants
+    
+    Eléméents à mettre en oeuvre pour uti
+    liser au mieux un context avec des composants fonctionnels:
+      a  - Disposer d'un état, géré par useState ou useReducer
+      b  - Créer le context avec React.createContext(), appelons le MonContext
+       c - Définir un HOC provider à partir du context créé, ce hoc englobe ses children dans MonContext.Provider
+       d - On passe l'état que l'on veut mettre à disposition dans la propriété "value" de MyContext.Provider
+        e - On export ce HOC du fichier où il est définit
+        f - On l'import dans App.js et on l'utilise pour englober tout ce qui est rendu par la fonction App (ce qu'il y a après le return)
+        
+    2- Consommer la valeur du context:
+        Dans n'importe quel composant fils de l'App qu'on a enveloppé par le provider, nous pouvons accéder à la valeur du context comme suit:
+            a- importer useContext de 'react' et importer le context que l'on a créé avec React.createContext
+            b- Appliquer useContext en lui passant le context en argument comme suit: const contextValue = useContext(ColorsContext);
+
+Remarques:
+    - Un context permet la mise d'un état global
+    - Un changement de la valeur du context provoque un rendu de toute l'application mise sous le Provider
+    Ce sera donc à utiliser pour des ressources dont la modification devra avoir un impact à plusieurs endroits de l'application par exemple:
+        - le thème graphique
+        - état connecté ou pas
+        etc
+
+
+Quelques pistes pour progresser:
+    - Faire le tuto envoyé le weekend dernier!
+    - Pour la persistance de données, voir le composant SQLite
+https://docs.expo.io/versions/v37.0.0/sdk/sqlite/
+
+    - Voir les push notification d'expo
+    -
+    
+    Je vous complèterai la liste de pistes à suivre et vous l'enverrai par mail

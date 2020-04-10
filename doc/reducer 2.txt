@@ -1,0 +1,37 @@
+ 
+TP:
+    Réaliser from sratch une application dotée de trois écrans accessibles via un bottom tab navigator.
+    Un écran de bienvenue
+    Un écran nommé "Couleurs"
+    Un écran d'infos perso
+    
+Le contenu de chaque écran pourra être une simple phrase mise dans un <Text> (lui même dans une SafeAreaView)
+
+Vous vous baserez sur la doc ici:
+    https://reactnavigation.org/docs/tab-based-navigation/
+    
+    
+    Correction ici:
+        https://github.com/kamelkeb/road_to_reducers
+        
+TP2: (TP de 20mins, fin tp 13h55)
+    Mettre en place un StackNavigator dans le screen de profil
+    Mettre en place un screen ProfileDetailScreen accessible via un bouton, bouton visible àaprès avoir cliqué/appuyé sur "Mon Profile" dans la bottom tab.
+    À partir du screen de détails, on voudra pouvoir atteindre le screen de modification de ce dernier via un bouton.
+    On passe d'un schéma de navigation  ayant pour forme:
+        - Welcome
+        - Colors
+        - Profile
+    À
+       - Welcome
+        - Colors
+        - ProfileStack :Profile 
+				        Details
+				        Modifier le profile
+				
+À retenir: les attributs "route" et "navigation" ne sont passés qu'au composant servant de screen, ils ne seront pas accessibles dans des composant fils importés.
+Si toutefois on a besoin d'y accéder dans un composant fils éloigné dans la hiérarchie sans faire la "plomberie", on peu utiliser les hooks:
+    useNavigation
+    useRoute
+après les avoir importé
+        import { useNavigation } from '@react-navigation/native';
